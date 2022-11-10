@@ -48,7 +48,7 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
     modifier isExperiencedToPremium(address userToMakePremium) {
         require(
             levelOfAccess[userToMakePremium].isExperiencedUser == true
-                && levelOfAccess[msg.sender].isPremiumUser == false,
+                && levelOfAccess[userToMakePremium].isPremiumUser == false,
             "Not an experienced user"
         );
         _;
@@ -57,10 +57,6 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
 
     function makePremium(address userToMakePremium) external isExperiencedToPremium onlyOwner {}
 
-    function levelUp() external {
-        level++;
-    }
-
     function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
         public
         onlyOwner
@@ -68,8 +64,11 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
         _mintBatch(to, ids, amounts, data);
     }
 
-    // The following functions are overrides required by Solidity.
+    function burn(address account, uint256 id, uint256 amount) public onlyOwner {
+        _burn(account, id, amount);
+    }
 
+    // The following functions are overrides required by Solidity.
     function _beforeTokenTransfer(
         address operator,
         address from,
