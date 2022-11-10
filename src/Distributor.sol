@@ -45,16 +45,17 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
         levelOfAccess[msg.sender].isExperiencedUser = true;
     }
 
-    modifier isExperiencedToPremium() {
+    modifier isExperiencedToPremium(address userToMakePremium) {
         require(
-            levelOfAccess[msg.sender].isExperiencedUser == true && levelOfAccess[msg.sender].isPremiumUser == false,
+            levelOfAccess[userToMakePremium].isExperiencedUser == true
+                && levelOfAccess[msg.sender].isPremiumUser == false,
             "Not an experienced user"
         );
         _;
-        levelOfAccess[msg.sender].isPremiumUser = true;
+        levelOfAccess[userToMakePremium].isPremiumUser = true;
     }
 
-    function makePremium() external isExperiencedToPremium {}
+    function makePremium(address userToMakePremium) external isExperiencedToPremium onlyOwner {}
 
     function levelUp() external {
         level++;
