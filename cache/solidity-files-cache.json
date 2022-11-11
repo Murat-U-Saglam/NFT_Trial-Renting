@@ -11,6 +11,45 @@
     ]
   },
   "files": {
+    "lib/chainlink-brownie-contracts/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol": {
+      "lastModificationDate": 1668170777134,
+      "contentHash": "c52969cee392918edbf23f914e01c0dc",
+      "sourceName": "lib/chainlink-brownie-contracts/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "AutomationCompatibleInterface": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "AutomationCompatibleInterface.sol/AutomationCompatibleInterface.json"
+        }
+      }
+    },
     "lib/forge-std/lib/ds-test/src/test.sol": {
       "lastModificationDate": 1667907451608,
       "contentHash": "962996f0e05d5218857a538a62d7c47e",
@@ -497,62 +536,6 @@
       "artifacts": {
         "StdUtils": {
           "0.8.17+commit.8df45f5f.Linux.gcc": "StdUtils.sol/StdUtils.json"
-        }
-      }
-    },
-    "lib/forge-std/src/Test.sol": {
-      "lastModificationDate": 1667907449704,
-      "contentHash": "23c73ad6c59f5d629042303f8ffc1359",
-      "sourceName": "lib/forge-std/src/Test.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/forge-std/lib/ds-test/src/test.sol",
-        "lib/forge-std/src/Common.sol",
-        "lib/forge-std/src/Components.sol",
-        "lib/forge-std/src/StdAssertions.sol",
-        "lib/forge-std/src/StdCheats.sol",
-        "lib/forge-std/src/StdError.sol",
-        "lib/forge-std/src/StdJson.sol",
-        "lib/forge-std/src/StdMath.sol",
-        "lib/forge-std/src/StdStorage.sol",
-        "lib/forge-std/src/StdUtils.sol",
-        "lib/forge-std/src/Vm.sol",
-        "lib/forge-std/src/console.sol",
-        "lib/forge-std/src/console2.sol"
-      ],
-      "versionRequirement": ">=0.6.2, <0.9.0",
-      "artifacts": {
-        "Test": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Test.sol/Test.json"
-        },
-        "TestBase": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Test.sol/TestBase.json"
         }
       }
     },
@@ -1239,10 +1222,121 @@
         }
       }
     },
-    "src/Counter.sol": {
-      "lastModificationDate": 1667907448188,
-      "contentHash": "ae6c800a2b4c57768024d6e9423d39e8",
-      "sourceName": "src/Counter.sol",
+    "src/Distributor.sol": {
+      "lastModificationDate": 1668177600274,
+      "contentHash": "eaddd7f0bb85b3618d4922872e2da77d",
+      "sourceName": "src/Distributor.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/chainlink-brownie-contracts/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol",
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC1155/ERC1155.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC1155/extensions/ERC1155Burnable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC1155/extensions/ERC1155Supply.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC1155/utils/ERC1155Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "characterNFT": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "Distributor.sol/characterNFT.json"
+        }
+      }
+    },
+    "test/Distributor.t.sol": {
+      "lastModificationDate": 1668177943482,
+      "contentHash": "e0566ea276d14715ea204fa9fee3de6e",
+      "sourceName": "test/Distributor.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/chainlink-brownie-contracts/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol",
+        "lib/forge-std/lib/ds-test/src/test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC1155/ERC1155.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC1155/extensions/ERC1155Burnable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC1155/extensions/ERC1155Supply.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC1155/utils/ERC1155Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "src/Distributor.sol",
+        "test/utils/Console.sol",
+        "test/utils/Utilities.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "DistributorTest": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "Distributor.t.sol/DistributorTest.json"
+        }
+      }
+    },
+    "test/utils/Console.sol": {
+      "lastModificationDate": 1668177162898,
+      "contentHash": "d54f9193915a9a7ac2d579b233d66f3f",
+      "sourceName": "test/utils/Console.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1273,177 +1367,14 @@
       "imports": [],
       "versionRequirement": "^0.8.13",
       "artifacts": {
-        "Counter": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Counter.sol/Counter.json"
-        }
-      }
-    },
-    "src/Distributor.sol": {
-      "lastModificationDate": 1667944864962,
-      "contentHash": "e1dab48307e0fd6945ae561a7c6cda3e",
-      "sourceName": "src/Distributor.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC1155/ERC1155.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155Receiver.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC1155/extensions/ERC1155Burnable.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC1155/extensions/ERC1155Supply.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC1155/utils/ERC1155Receiver.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
-        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
-        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
-      ],
-      "versionRequirement": "^0.8.4",
-      "artifacts": {
-        "characterNFT": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Distributor.sol/characterNFT.json"
-        }
-      }
-    },
-    "test/Counter.t.sol": {
-      "lastModificationDate": 1667907448188,
-      "contentHash": "b1a6521ba9c61d5266bab1fc9a057d68",
-      "sourceName": "test/Counter.t.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/forge-std/lib/ds-test/src/test.sol",
-        "lib/forge-std/src/Common.sol",
-        "lib/forge-std/src/Components.sol",
-        "lib/forge-std/src/StdAssertions.sol",
-        "lib/forge-std/src/StdCheats.sol",
-        "lib/forge-std/src/StdError.sol",
-        "lib/forge-std/src/StdJson.sol",
-        "lib/forge-std/src/StdMath.sol",
-        "lib/forge-std/src/StdStorage.sol",
-        "lib/forge-std/src/StdUtils.sol",
-        "lib/forge-std/src/Test.sol",
-        "lib/forge-std/src/Vm.sol",
-        "lib/forge-std/src/console.sol",
-        "lib/forge-std/src/console2.sol",
-        "src/Counter.sol"
-      ],
-      "versionRequirement": "^0.8.13",
-      "artifacts": {
-        "CounterTest": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Counter.t.sol/CounterTest.json"
-        }
-      }
-    },
-    "test/Distributor.t.sol": {
-      "lastModificationDate": 1668007838818,
-      "contentHash": "1cee4dd0bf7d1ac718010c8447f7a8a2",
-      "sourceName": "test/Distributor.t.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/forge-std/lib/ds-test/src/test.sol",
-        "lib/forge-std/src/Vm.sol",
-        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC1155/ERC1155.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155Receiver.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC1155/extensions/ERC1155Burnable.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC1155/extensions/ERC1155Supply.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC1155/utils/ERC1155Receiver.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
-        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
-        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
-        "src/Distributor.sol",
-        "test/utils/Utilities.sol"
-      ],
-      "versionRequirement": "^0.8.13",
-      "artifacts": {
-        "DistributorTest": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Distributor.t.sol/DistributorTest.json"
+        "console": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "Console.sol/console.json"
         }
       }
     },
     "test/utils/Utilities.sol": {
-      "lastModificationDate": 1667920395390,
-      "contentHash": "37c38b4b58d7647efb9b18c27031b5a9",
+      "lastModificationDate": 1668177172954,
+      "contentHash": "9f6c0d1467e4a7c8c52d614c9695da70",
       "sourceName": "test/utils/Utilities.sol",
       "solcConfig": {
         "settings": {
@@ -1476,7 +1407,7 @@
         "lib/forge-std/lib/ds-test/src/test.sol",
         "lib/forge-std/src/Vm.sol"
       ],
-      "versionRequirement": ">=0.8.0",
+      "versionRequirement": "^0.8.13",
       "artifacts": {
         "Utilities": {
           "0.8.17+commit.8df45f5f.Linux.gcc": "Utilities.sol/Utilities.json"

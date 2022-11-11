@@ -1,14 +1,19 @@
     // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.13;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol";
+import "chainlink-brownie-contracts/AutomationCompatibleInterface.sol";
 
 contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
-    uint8 public level = 0;
+    uint256 public currentDate = block.timestamp;
+    uint256 public mintDate;
+    uint256 public timeTillExpire;
+    uint256 public expireDate = mintDate + timeTillExpire;
+    uint256 public tokenId = 0;
 
     struct accessLevel {
         bool isExperiencedUser;
@@ -23,12 +28,11 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
 
     constructor() ERC1155("http://127.0.0.1:5500/api/characterNFT/{id}.json") {}
 
-    function mint(address distributorAddress, uint256 id, uint256 amount, bytes memory data) public onlyOwner {
+    function mint(address addressToMint, uint256 id, uint256 amount, bytes memory data) public onlyOwner {
         // msg.sender is the caller of the function but the distributor is the owner of the contract
-        _mint(distributorAddress, id, amount, data);
+        _mint(addressToMint, id, amount, data);
         emit NFTIsMinted(msg.sender, "NFT is minted");
     }
-    // Group minting
 
     function resetToNewUser(address accountToReset) public onlyOwner {
         levelOfAccess[accountToReset].isExperiencedUser = false;
@@ -55,17 +59,13 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
         levelOfAccess[userToMakePremium].isPremiumUser = true;
     }
 
-    function makePremium(address userToMakePremium) external isExperiencedToPremium onlyOwner {}
+    function makePremium(address userToMakePremium) external isExperiencedToPremium(userToMakePremium) onlyOwner {}
 
     function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
         public
         onlyOwner
     {
         _mintBatch(to, ids, amounts, data);
-    }
-
-    function burn(address account, uint256 id, uint256 amount) public onlyOwner {
-        _burn(account, id, amount);
     }
 
     // The following functions are overrides required by Solidity.
