@@ -1223,8 +1223,8 @@
       }
     },
     "src/Distributor.sol": {
-      "lastModificationDate": 1668177600274,
-      "contentHash": "eaddd7f0bb85b3618d4922872e2da77d",
+      "lastModificationDate": 1668783491356,
+      "contentHash": "aeb2560c15d19a83d2c74941a1fe5442",
       "sourceName": "src/Distributor.sol",
       "solcConfig": {
         "settings": {
@@ -1276,8 +1276,8 @@
       }
     },
     "test/Distributor.t.sol": {
-      "lastModificationDate": 1668177943482,
-      "contentHash": "e0566ea276d14715ea204fa9fee3de6e",
+      "lastModificationDate": 1668783593288,
+      "contentHash": "4d2381401c7871c0828817df017a0107",
       "sourceName": "test/Distributor.t.sol",
       "solcConfig": {
         "settings": {

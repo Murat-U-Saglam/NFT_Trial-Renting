@@ -42,26 +42,19 @@ contract DistributorTest is DSTest {
     function testFailMintMultipleTrialNFTs() public {
         console.log("owner's adress is: ", owner);
         console.log(nft.owner());
-        nft.trialNFTMint(1, 1, "");
-        nft.trialNFTMint(1, 1, "");
+        nft.trialNFTMint(1, "");
+        nft.trialNFTMint(1, "");
     }
 
     function testFailMintAsNonUser(uint256 id, uint256 amount) public {
-        for (uint i=1; i<4; i++){
+        for (uint256 i = 1; i < 4; i++) {
             vm.prank(users[i]);
             nft.mint(users[i], id, amount, "0x11");
         }
     }
-    
-    function testFailBatchAsNonUser(uint256[] memory ids, uint256[] memory amounts) public {
-        for (uint i=1; i<4; i++){
-            vm.prank(users[i]);
-            nft.mintBatch(users[i], ids, amounts, "0x11");
-        }
-    }
 
     function testFailTakeOwnership() public {
-        for (uint i=1; i<4; i++){
+        for (uint256 i = 1; i < 4; i++) {
             vm.prank(users[i]);
         }
     }

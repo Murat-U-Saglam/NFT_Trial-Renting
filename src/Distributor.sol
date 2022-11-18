@@ -8,12 +8,13 @@ import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol";
 import "chainlink-brownie-contracts/AutomationCompatibleInterface.sol";
 
-contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
+contract characterNFT is ERC1155, ERC1155Burnable, Ownable, AutomationCompatibleInterface, ERC1155Supply {
     uint256 public currentDate = block.timestamp;
-    uint256 public mintDate;
-    uint256 public timeTillExpire;
-    uint256 public expireDate = mintDate + timeTillExpire;
-    uint256 public tokenId = 0;
+    uint256 public mintDate4NFT;
+    uint256 public timeTillExpire = 7 days;
+    uint256 public expireDate = mintDate4NFT + timeTillExpire;
+
+    uint256 public constant TRIALNFTID = 0;
 
     struct accessLevel {
         bool isExperiencedUser;
@@ -28,20 +29,36 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
 
     constructor() ERC1155("http://127.0.0.1:5500/api/characterNFT/{id}.json") {}
 
+    function trialNFTMint(uint256 amount, bytes memory data) public onlyNewUser {
+        _mint(msg.sender, TRIALNFTID, amount, data);
+        mintDate4NFT = block.timestamp;
+        emit trialNFTIsMinted(msg.sender, "Trial NFT is minted");
+    }
+
     function mint(address addressToMint, uint256 id, uint256 amount, bytes memory data) public onlyOwner {
         // msg.sender is the caller of the function but the distributor is the owner of the contract
         _mint(addressToMint, id, amount, data);
         emit NFTIsMinted(msg.sender, "NFT is minted");
     }
 
+    function checkUpkeep(bytes memory) public override returns (bool needsUpkeep, bytes memory) {
+        bool timePassed = (expireDate >= currentDate);
+        needsUpkeep = (timePassed);
+    }
+
+    //burns token once condition is met
+    function performUpkeep(bytes calldata) external override {
+        (bool needsUpkeep,) = checkUpkeep("");
+        require(needsUpkeep == true, "Upkeep not needed.");
+        _burn(msg.sender, TRIALNFTID, 1);
+    }
+    //testing purposes
+
     function resetToNewUser(address accountToReset) public onlyOwner {
         levelOfAccess[accountToReset].isExperiencedUser = false;
     }
 
-    function trialNFTMint(uint256 id, uint256 amount, bytes memory data) public onlyNewUser {
-        _mint(msg.sender, id, amount, data);
-        emit trialNFTIsMinted(msg.sender, "Trial NFT is minted");
-    }
+    function makePremium(address userToMakePremium) external isExperiencedToPremium(userToMakePremium) onlyOwner {}
 
     modifier onlyNewUser() {
         require(levelOfAccess[msg.sender].isExperiencedUser == false, "Not a new user");
@@ -57,15 +74,6 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
         );
         _;
         levelOfAccess[userToMakePremium].isPremiumUser = true;
-    }
-
-    function makePremium(address userToMakePremium) external isExperiencedToPremium(userToMakePremium) onlyOwner {}
-
-    function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
-        public
-        onlyOwner
-    {
-        _mintBatch(to, ids, amounts, data);
     }
 
     // The following functions are overrides required by Solidity.
