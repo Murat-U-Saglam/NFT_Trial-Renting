@@ -659,6 +659,86 @@
         }
       }
     },
+    "lib/gsn/packages/contracts/src/ERC2771Recipient.sol": {
+      "lastModificationDate": 1668787725133,
+      "contentHash": "a3f8c0bfa93fbf48114c0d9dedfeb5a0",
+      "sourceName": "lib/gsn/packages/contracts/src/ERC2771Recipient.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/gsn/packages/contracts/src/interfaces/IERC2771Recipient.sol"
+      ],
+      "versionRequirement": ">=0.6.9",
+      "artifacts": {
+        "ERC2771Recipient": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "ERC2771Recipient.sol/ERC2771Recipient.json"
+        }
+      }
+    },
+    "lib/gsn/packages/contracts/src/interfaces/IERC2771Recipient.sol": {
+      "lastModificationDate": 1668787725133,
+      "contentHash": "0e5ad1cd070b2093adf9d1139dbc6ee6",
+      "sourceName": "lib/gsn/packages/contracts/src/interfaces/IERC2771Recipient.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.6.0",
+      "artifacts": {
+        "IERC2771Recipient": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "IERC2771Recipient.sol/IERC2771Recipient.json"
+        }
+      }
+    },
     "lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
       "lastModificationDate": 1667907865544,
       "contentHash": "e436cea06129be2c73cda4b1acc848b5",
@@ -1223,8 +1303,8 @@
       }
     },
     "src/Distributor.sol": {
-      "lastModificationDate": 1668783491356,
-      "contentHash": "aeb2560c15d19a83d2c74941a1fe5442",
+      "lastModificationDate": 1668787912621,
+      "contentHash": "9d704d9bb7fd59d0a17da7e54ed1c69f",
       "sourceName": "src/Distributor.sol",
       "solcConfig": {
         "settings": {
@@ -1255,6 +1335,8 @@
       },
       "imports": [
         "lib/chainlink-brownie-contracts/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol",
+        "lib/gsn/packages/contracts/src/ERC2771Recipient.sol",
+        "lib/gsn/packages/contracts/src/interfaces/IERC2771Recipient.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/ERC1155.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155.sol",
@@ -1310,6 +1392,8 @@
         "lib/chainlink-brownie-contracts/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol",
         "lib/forge-std/lib/ds-test/src/test.sol",
         "lib/forge-std/src/Vm.sol",
+        "lib/gsn/packages/contracts/src/ERC2771Recipient.sol",
+        "lib/gsn/packages/contracts/src/interfaces/IERC2771Recipient.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/ERC1155.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155.sol",

@@ -1,0 +1,43 @@
+{
+  "name": "@opengsn/common",
+  "version": "3.0.0-beta.2",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "watch-tsc": "tsc -w --preserveWatchOutput",
+    "lint": "eslint -f unix .",
+    "lint-fix": "yarn lint --fix",
+    "rm-dist": "rm -rf tsconfig.tsbuildinfo dist"
+  },
+  "files": [
+    "dist/*",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@ethereumjs/common": "^2.6.5",
+    "@ethereumjs/tx": "^3.2.0",
+    "@metamask/eth-sig-util": "^4.0.1",
+    "@opengsn/contracts": "^3.0.0-beta.2",
+    "@types/bn.js": "^5.1.0",
+    "@types/semver": "^7.3.4",
+    "axios": "^0.21.1",
+    "bignumber.js": "^9.0.2",
+    "bn.js": "^5.2.0",
+    "chalk": "^4.1.2",
+    "ethereumjs-util": "^7.1.0",
+    "ow": "^0.28.1",
+    "rlp": "^2.2.6",
+    "semver": "^7.3.2",
+    "web3": "^1.7.3",
+    "web3-core": "^1.7.3",
+    "web3-core-helpers": "^1.7.3",
+    "web3-eth": "^1.7.3",
+    "web3-eth-abi": "^1.7.3",
+    "web3-eth-contract": "^1.7.3",
+    "web3-utils": "^1.7.3"
+  }
+}

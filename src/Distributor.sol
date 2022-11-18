@@ -6,7 +6,8 @@ import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol";
-import "chainlink-brownie-contracts/AutomationCompatibleInterface.sol";
+import "@chainlink-brownie-contracts/AutomationCompatibleInterface.sol";
+import "@opengsn/contracts/src/ERC2771Recipient.sol";
 
 contract characterNFT is ERC1155, ERC1155Burnable, Ownable, AutomationCompatibleInterface, ERC1155Supply {
     uint256 public currentDate = block.timestamp;
@@ -52,8 +53,12 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, AutomationCompatible
         require(needsUpkeep == true, "Upkeep not needed.");
         _burn(msg.sender, TRIALNFTID, 1);
     }
-    //testing purposes
 
+    function GSNSetup(address trustedForwarder) public onlyOwner {
+        _trustedForwarder = trustedForwarder;
+    }
+
+    //testing purposes
     function resetToNewUser(address accountToReset) public onlyOwner {
         levelOfAccess[accountToReset].isExperiencedUser = false;
     }

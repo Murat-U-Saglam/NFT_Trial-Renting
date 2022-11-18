@@ -1,6 +1,7 @@
 @openzeppelin/=lib/openzeppelin-contracts/
-chainlink-brownie-contracts/=lib/chainlink-brownie-contracts/contracts/src/v0.8/interfaces/
+@chainlink-brownie-contracts/=lib/chainlink-brownie-contracts/contracts/src/v0.8/interfaces/
 ds-test/=lib/forge-std/lib/ds-test/src/
 erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/
 forge-std/=lib/forge-std/src/
 openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/
+@opengsn/=lib/gsn/packages/
