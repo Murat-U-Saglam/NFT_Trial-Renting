@@ -1,3 +1,4 @@
 #Cached stuff
 foundry/cache/
 .vscode/*
+cache/*
