@@ -57,5 +57,6 @@ contract DistributorTest is DSTest {
         for (uint256 i = 1; i < 4; i++) {
             vm.prank(users[i]);
         }
+
     }
 }

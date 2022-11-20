@@ -1,7 +1,0 @@
-{
-  "extends": "../../tsconfig.packages.json",
-  "include": [
-    "truffle.js",
-    "../paymasters/test/**/*.ts"
-  ]
-}
