@@ -10,4 +10,4 @@ Smart contracts to build an NFT platform with easy onboarding
 - [x] Trial NFT minting
 - [x] SBT
 - [x] Premium access to provide full capabilities
-- [ ] Meta TXs
+- [x] Meta TXs
