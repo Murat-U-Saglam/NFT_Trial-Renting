@@ -10,7 +10,7 @@ import "../utils/Context.sol";
  */
 abstract contract ERC2771Context is Context {
     /// @custom:oz-upgrades-unsafe-allow state-variable-immutable
-    address private immutable _trustedForwarder;
+    address private _trustedForwarder;
 
     /// @custom:oz-upgrades-unsafe-allow constructor
     constructor(address trustedForwarder) {

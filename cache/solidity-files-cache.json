@@ -659,86 +659,6 @@
         }
       }
     },
-    "lib/gsn/packages/contracts/src/ERC2771Recipient.sol": {
-      "lastModificationDate": 1668787725133,
-      "contentHash": "a3f8c0bfa93fbf48114c0d9dedfeb5a0",
-      "sourceName": "lib/gsn/packages/contracts/src/ERC2771Recipient.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/gsn/packages/contracts/src/interfaces/IERC2771Recipient.sol"
-      ],
-      "versionRequirement": ">=0.6.9",
-      "artifacts": {
-        "ERC2771Recipient": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "ERC2771Recipient.sol/ERC2771Recipient.json"
-        }
-      }
-    },
-    "lib/gsn/packages/contracts/src/interfaces/IERC2771Recipient.sol": {
-      "lastModificationDate": 1668787725133,
-      "contentHash": "0e5ad1cd070b2093adf9d1139dbc6ee6",
-      "sourceName": "lib/gsn/packages/contracts/src/interfaces/IERC2771Recipient.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": ">=0.6.0",
-      "artifacts": {
-        "IERC2771Recipient": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IERC2771Recipient.sol/IERC2771Recipient.json"
-        }
-      }
-    },
     "lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
       "lastModificationDate": 1667907865544,
       "contentHash": "e436cea06129be2c73cda4b1acc848b5",
@@ -777,6 +697,91 @@
       "artifacts": {
         "Ownable": {
           "0.8.17+commit.8df45f5f.Linux.gcc": "Ownable.sol/Ownable.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts/contracts/metatx/ERC2771Context.sol": {
+      "lastModificationDate": 1669047675019,
+      "contentHash": "4498e1337b752056727b75c2aedff208",
+      "sourceName": "lib/openzeppelin-contracts/contracts/metatx/ERC2771Context.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol"
+      ],
+      "versionRequirement": "^0.8.9",
+      "artifacts": {
+        "ERC2771Context": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "ERC2771Context.sol/ERC2771Context.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts/contracts/metatx/MinimalForwarder.sol": {
+      "lastModificationDate": 1667907865552,
+      "contentHash": "2588d55e6ca7e3342da8e3b2d68f3f4e",
+      "sourceName": "lib/openzeppelin-contracts/contracts/metatx/MinimalForwarder.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
+        "lib/openzeppelin-contracts/contracts/utils/cryptography/EIP712.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "MinimalForwarder": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "MinimalForwarder.sol/MinimalForwarder.json"
         }
       }
     },
@@ -1168,6 +1173,132 @@
         }
       }
     },
+    "lib/openzeppelin-contracts/contracts/utils/Strings.sol": {
+      "lastModificationDate": 1667907865576,
+      "contentHash": "a0c595fbbddc5c8b4f45c5f496ad90ff",
+      "sourceName": "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "Strings": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "Strings.sol/Strings.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol": {
+      "lastModificationDate": 1667907865576,
+      "contentHash": "58ce80c4c4302ad24a32d1494228151a",
+      "sourceName": "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "ECDSA": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "ECDSA.sol/ECDSA.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts/contracts/utils/cryptography/EIP712.sol": {
+      "lastModificationDate": 1667907865576,
+      "contentHash": "5413ff8853c8d321cd79d79d099d9189",
+      "sourceName": "lib/openzeppelin-contracts/contracts/utils/cryptography/EIP712.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "EIP712": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "EIP712.sol/EIP712.json"
+        }
+      }
+    },
     "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol": {
       "lastModificationDate": 1667907865576,
       "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
@@ -1248,6 +1379,45 @@
         }
       }
     },
+    "lib/openzeppelin-contracts/contracts/utils/math/Math.sol": {
+      "lastModificationDate": 1667907865576,
+      "contentHash": "44d60ce5beebff2e3958a41e4cfdb984",
+      "sourceName": "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "Math": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "Math.sol/Math.json"
+        }
+      }
+    },
     "script/Counter.s.sol": {
       "lastModificationDate": 1667907448188,
       "contentHash": "0705c52104730a78aef4aa6694175c81",
@@ -1303,8 +1473,8 @@
       }
     },
     "src/Distributor.sol": {
-      "lastModificationDate": 1668787912621,
-      "contentHash": "9d704d9bb7fd59d0a17da7e54ed1c69f",
+      "lastModificationDate": 1669045823331,
+      "contentHash": "06fe5a72dfe935703bbd572cc9b7ee5b",
       "sourceName": "src/Distributor.sol",
       "solcConfig": {
         "settings": {
@@ -1335,9 +1505,9 @@
       },
       "imports": [
         "lib/chainlink-brownie-contracts/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol",
-        "lib/gsn/packages/contracts/src/ERC2771Recipient.sol",
-        "lib/gsn/packages/contracts/src/interfaces/IERC2771Recipient.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/metatx/ERC2771Context.sol",
+        "lib/openzeppelin-contracts/contracts/metatx/MinimalForwarder.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/ERC1155.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155Receiver.sol",
@@ -1347,8 +1517,12 @@
         "lib/openzeppelin-contracts/contracts/token/ERC1155/utils/ERC1155Receiver.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
+        "lib/openzeppelin-contracts/contracts/utils/cryptography/EIP712.sol",
         "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
-        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
@@ -1358,8 +1532,8 @@
       }
     },
     "test/Distributor.t.sol": {
-      "lastModificationDate": 1668783593288,
-      "contentHash": "4d2381401c7871c0828817df017a0107",
+      "lastModificationDate": 1669046604147,
+      "contentHash": "5b0ddba96f34a08afb8d221b04b816a3",
       "sourceName": "test/Distributor.t.sol",
       "solcConfig": {
         "settings": {
@@ -1392,9 +1566,9 @@
         "lib/chainlink-brownie-contracts/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol",
         "lib/forge-std/lib/ds-test/src/test.sol",
         "lib/forge-std/src/Vm.sol",
-        "lib/gsn/packages/contracts/src/ERC2771Recipient.sol",
-        "lib/gsn/packages/contracts/src/interfaces/IERC2771Recipient.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/metatx/ERC2771Context.sol",
+        "lib/openzeppelin-contracts/contracts/metatx/MinimalForwarder.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/ERC1155.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155Receiver.sol",
@@ -1404,8 +1578,12 @@
         "lib/openzeppelin-contracts/contracts/token/ERC1155/utils/ERC1155Receiver.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
+        "lib/openzeppelin-contracts/contracts/utils/cryptography/EIP712.sol",
         "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
         "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "src/Distributor.sol",
         "test/utils/Console.sol",
         "test/utils/Utilities.sol"

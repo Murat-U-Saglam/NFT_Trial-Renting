@@ -1,25 +1,27 @@
     // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
+import "@openzeppelin/contracts/metatx/ERC2771Context.sol";
+import "@openzeppelin/contracts/metatx/MinimalForwarder.sol";
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol";
 import "@chainlink-brownie-contracts/AutomationCompatibleInterface.sol";
-import "@openzeppelin/contracts/metatx/ERC2771Context.sol";
-import "@openzeppelin/contracts/metatx/MinimalForwarder.sol";
 
 contract characterNFT is
+    ERC2771Context,
     ERC1155,
     ERC1155Burnable,
     Ownable,
     AutomationCompatibleInterface,
-    ERC1155Supply,
-    ERC2771Context
+    ERC1155Supply
 {
     uint256 public currentDate = block.timestamp;
     uint256 public constant TRIALNFTID = 0;
+
+    address user = _msgSender();
 
     struct trialNFTInfo {
         uint256 mintDate4NFT;
@@ -38,14 +40,14 @@ contract characterNFT is
     event trialNFTIsMinted(address indexed account, string message);
     event Attest(address indexed to, uint256 indexed tokenId);
 
-    constructor()
+    constructor(MinimalForwarder forwarder)
         ERC1155("http://127.0.0.1:5500/api/characterNFT/{id}.json")
-        ERC2771Context(address(0x7A95fA73250dc53556d264522150A940d4C50238))
+        ERC2771Context(address(forwarder))
     {}
 
     function trialNFTMint(uint256 amount, bytes memory data) public onlyNewUser {
         uint256 timeTillExpire = 7 days;
-        address user = _msgSender();
+
         trialNFT[user].mintDate4NFT = block.timestamp;
         trialNFT[user].expireDate = trialNFT[user].mintDate4NFT + timeTillExpire;
         _mint(user, TRIALNFTID, amount, data);
@@ -55,12 +57,11 @@ contract characterNFT is
     function mint(address addressToMint, uint256 id, uint256 amount, bytes memory data) public onlyOwner {
         // _msgSender() is the caller of the function but the distributor is the owner of the contract
         _mint(addressToMint, id, amount, data);
-        address user = _msgSender();
+
         emit NFTIsMinted(user, "NFT is minted");
     }
 
     function checkUpkeep(bytes memory) public override returns (bool needsUpkeep, bytes memory) {
-        address user = _msgSender();
         bool timePassed = (trialNFT[user].expireDate >= currentDate);
         needsUpkeep = (timePassed);
     }
@@ -93,6 +94,14 @@ contract characterNFT is
         );
         _;
         levelOfAccess[userToMakePremium].isPremiumUser = true;
+    }
+    // The following functions are overrides required by Openzepllin to prioritise said methods.
+    function _msgSender() internal view override (Context, ERC2771Context) returns (address sender) {
+        sender = ERC2771Context._msgSender();
+    }
+
+    function _msgData() internal view override (Context, ERC2771Context) returns (bytes calldata) {
+        return ERC2771Context._msgData();
     }
 
     // The following functions are overrides required by Solidity.
