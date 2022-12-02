@@ -1,6 +1,6 @@
 #Cached stuff
 foundry/cache/
-.vscode/*
+vscode/*
 *.log
-.cache/
-.out/
+cache/
+out/
