@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/metatx/MinimalForwarder.sol";
 import {DSTest} from "ds-test/test.sol";
@@ -26,7 +26,7 @@ contract DistributorTest is DSTest {
     function setUp() public {
         utils = new Utilities();
         users = utils.createUsers(4);
-        nft = new characterNFT(forwarder);
+        nft = new characterNFT();
         owner = users[0]; // User 0 is the owner of the contract/Distributor
         noob = users[1]; // User 1 is new user
         experienced = users[2]; // User 2 is experienced user
@@ -45,20 +45,25 @@ contract DistributorTest is DSTest {
     function testFailMintMultipleTrialNFTs() public {
         console.log("owner's adress is: ", owner);
         console.log(nft.owner());
-        nft.trialNFTMint(1, "");
-        nft.trialNFTMint(1, "");
-    }
-
-    function testFailMintAsNonUser(uint256 id, uint256 amount) public {
-        for (uint256 i = 1; i < 4; i++) {
-            vm.prank(users[i]);
-            nft.mint(users[i], id, amount, "0x11");
-        }
+        nft.trialNFTMint();
+        nft.trialNFTMint();
     }
 
     function testFailTakeOwnership() public {
         for (uint256 i = 1; i < 4; i++) {
             vm.prank(users[i]);
+        }
+    }
+
+    function testFailGSNFreeTXs() public {
+        uint256 initBalance;
+        uint256 postTradeBalance;
+        for (uint256 i = 1; i < 4; i++) {
+            vm.prank(users[i]);
+            initBalance = users[i].balance;
+            nft.trialNFTMint();
+            postTradeBalance = users[i].balance;
+            assert(initBalance == postTradeBalance);
         }
     }
 }
