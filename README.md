@@ -1,4 +1,13 @@
-# NFT_Trial-Renting
+## NFT_Trial-Renting
 
+### Developed for MetaVerse Hackathon
 
-Create defender on goerli network utilising openzepplin defender
+Smart contracts to build an NFT platform with easy onboarding
+
+### Feature
+
+- [X] Minting
+- [X] Trial NFT minting
+- [X] SBT
+- [X] Premium access to provide full capabilities
+- [ ] Meta TXs

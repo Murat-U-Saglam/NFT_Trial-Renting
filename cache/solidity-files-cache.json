@@ -577,7 +577,7 @@
       "versionRequirement": ">=0.4.22, <0.9.0",
       "artifacts": {
         "console": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "console.sol/console.json"
+          "0.8.17+commit.8df45f5f.Linux.gcc": "src/console.sol/console.json"
         }
       }
     },
@@ -1055,7 +1055,7 @@
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/Context.sol": {
-      "lastModificationDate": 1667907865572,
+      "lastModificationDate": 1668962105157,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/Context.sol",
       "solcConfig": {
@@ -1339,7 +1339,7 @@
       }
     },
     "script/Counter.s.sol": {
-      "lastModificationDate": 1667907448188,
+      "lastModificationDate": 1669222072914,
       "contentHash": "0705c52104730a78aef4aa6694175c81",
       "sourceName": "script/Counter.s.sol",
       "solcConfig": {
@@ -1393,8 +1393,8 @@
       }
     },
     "src/Distributor.sol": {
-      "lastModificationDate": 1670016438311,
-      "contentHash": "4453ef70dcd54b24a7e281dadaf6c0b4",
+      "lastModificationDate": 1670019330472,
+      "contentHash": "d7770932668b6f51b7ba019986daba6c",
       "sourceName": "src/Distributor.sol",
       "solcConfig": {
         "settings": {

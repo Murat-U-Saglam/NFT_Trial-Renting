@@ -31,16 +31,16 @@
         7501
       ],
       "Vm": [
-        8315
+        8284
       ],
       "VmSafe": [
-        7990
+        7959
       ],
       "console": [
-        16379
+        16348
       ],
       "console2": [
-        24444
+        24413
       ],
       "stdError": [
         5139
@@ -83,7 +83,7 @@
         "file": "./console.sol",
         "nameLocation": "-1:-1:-1",
         "scope": 1831,
-        "sourceUnit": 16380,
+        "sourceUnit": 16349,
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -95,7 +95,7 @@
         "file": "./console2.sol",
         "nameLocation": "-1:-1:-1",
         "scope": 1831,
-        "sourceUnit": 24445,
+        "sourceUnit": 24414,
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -191,7 +191,7 @@
         "file": "./Vm.sol",
         "nameLocation": "-1:-1:-1",
         "scope": 1831,
-        "sourceUnit": 8316,
+        "sourceUnit": 8285,
         "symbolAliases": [],
         "unitAlias": ""
       }
