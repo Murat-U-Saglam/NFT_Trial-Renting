@@ -1,4 +1,8 @@
-    // SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
+
+/// @title NFT contract for easy onboarding SBT
+/// @author Murat
+
 pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
@@ -11,28 +15,34 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
     uint256 public currentDate;
     uint256 public constant TRIALNFTID = 0;
 
+    //@notice to store information regarding the NFT expiry information
     struct trialNFTInfo {
         uint256 mintDate4NFT;
         uint256 expireDate;
     }
 
+    //@notice Stores access levels for each user
     enum accountPrivellege {
-        noob, // 0 default value
-        experienced, // 1
-        premium // 2
+        noob, // Hasn't minted trial NFT yet
+        experienced, // Minted trial NFT but is has not purechased a premium NFT
+        premium // Has purchased a premium NFT
     }
 
+    //@notice Stores the information regarding account holders
     mapping(address => trialNFTInfo) public trialNFT;
     mapping(address => accountPrivellege) public levelOfAccess;
 
-    event NFTIsMinted(address indexed account, string message);
+    //@notice Events for logging
     event trialNFTIsMinted(address indexed account, string message);
     event Attest(address indexed to, uint256 indexed tokenId);
 
+    //@dev Makes the owner also premium
     constructor() ERC1155("http://127.0.0.1:5500/api/characterNFT/{id}.json") {
         levelOfAccess[msg.sender] = accountPrivellege.premium;
     }
 
+    //@notice to mint trial NFTs
+    //@dev only for new users who have not minted trial NFTs yet
     function trialNFTMint() public onlyNewUser {
         uint256 timeTillExpire = 7 days;
         trialNFT[msg.sender].mintDate4NFT = block.timestamp;
@@ -40,6 +50,8 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
         _mint(msg.sender, TRIALNFTID, 1, "0x11");
         emit trialNFTIsMinted(msg.sender, "Trial NFT is minted");
     }
+    //@notice checks the conditions regarding an upkeeping
+    //@dev Checks if the current date is pass the expiry date of the trial NFT
 
     function checkUpkeep() public returns (bool needsUpkeep) {
         currentDate = block.timestamp;
@@ -47,20 +59,19 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
         needsUpkeep = (timePassed);
     }
 
-    //burns token once condition is met
+    //@notice burns token once condition is met
     function performUpkeep() external {
         (bool needsUpkeep) = checkUpkeep();
         require(needsUpkeep == true, "Upkeep not needed.");
         _burn(msg.sender, TRIALNFTID, 1);
     }
 
-    //testing purposes
-    function resetToNewUser(address accountToReset) public onlyOwner {
-        levelOfAccess[accountToReset] = accountPrivellege.noob;
-    }
-
+    //@notice Makes a user to an premium user
+    //@dev Only for users who have purchased a premium NFT
     function makePremium(address userToMakePremium) external isExperiencedToPremium(userToMakePremium) onlyOwner {}
 
+    //@notice checks if a user is a new user
+    //@dev automatically updates the user to an experienced user once the trial NFT is minted
     modifier onlyNewUser() {
         require(
             levelOfAccess[_msgSender()] == accountPrivellege.noob,
@@ -70,6 +81,8 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
         levelOfAccess[_msgSender()] = accountPrivellege.experienced;
     }
 
+    //@notice checks if a user is an experienced user
+    //@dev automatically updates the user to an premium user
     modifier isExperiencedToPremium(address userToMakePremium) {
         require(
             levelOfAccess[userToMakePremium] == accountPrivellege.experienced,
@@ -79,7 +92,7 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
         levelOfAccess[userToMakePremium] = accountPrivellege.premium;
     }
 
-    // The following functions are overrides required by Solidity.
+    //@dev to check conditions to maintain SBT behaviour
     function _beforeTokenTransfer(
         address operator,
         address from,
@@ -97,6 +110,7 @@ contract characterNFT is ERC1155, ERC1155Burnable, Ownable, ERC1155Supply {
         }
     }
 
+    //@dev to enfore the conditions to maintain SBT behaviour
     function _afterTokenTransfer(address from, address to, uint256[] memory ids) internal virtual {
         if (from == address(0) && levelOfAccess[_msgSender()] != accountPrivellege.premium) {
             emit Attest(to, ids[0]);
