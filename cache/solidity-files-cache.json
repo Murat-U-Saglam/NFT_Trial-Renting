@@ -11,45 +11,6 @@
     ]
   },
   "files": {
-    "lib/chainlink-brownie-contracts/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol": {
-      "lastModificationDate": 1668170777134,
-      "contentHash": "c52969cee392918edbf23f914e01c0dc",
-      "sourceName": "lib/chainlink-brownie-contracts/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "AutomationCompatibleInterface": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "AutomationCompatibleInterface.sol/AutomationCompatibleInterface.json"
-        }
-      }
-    },
     "lib/forge-std/lib/ds-test/src/test.sol": {
       "lastModificationDate": 1667907451608,
       "contentHash": "962996f0e05d5218857a538a62d7c47e",
@@ -697,47 +658,6 @@
       "artifacts": {
         "Ownable": {
           "0.8.17+commit.8df45f5f.Linux.gcc": "Ownable.sol/Ownable.json"
-        }
-      }
-    },
-    "lib/openzeppelin-contracts/contracts/metatx/ERC2771Context.sol": {
-      "lastModificationDate": 1669047675019,
-      "contentHash": "4498e1337b752056727b75c2aedff208",
-      "sourceName": "lib/openzeppelin-contracts/contracts/metatx/ERC2771Context.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/openzeppelin-contracts/contracts/utils/Context.sol"
-      ],
-      "versionRequirement": "^0.8.9",
-      "artifacts": {
-        "ERC2771Context": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "ERC2771Context.sol/ERC2771Context.json"
         }
       }
     },
@@ -1473,8 +1393,8 @@
       }
     },
     "src/Distributor.sol": {
-      "lastModificationDate": 1669045823331,
-      "contentHash": "06fe5a72dfe935703bbd572cc9b7ee5b",
+      "lastModificationDate": 1670016438311,
+      "contentHash": "4453ef70dcd54b24a7e281dadaf6c0b4",
       "sourceName": "src/Distributor.sol",
       "solcConfig": {
         "settings": {
@@ -1504,10 +1424,7 @@
         }
       },
       "imports": [
-        "lib/chainlink-brownie-contracts/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/metatx/ERC2771Context.sol",
-        "lib/openzeppelin-contracts/contracts/metatx/MinimalForwarder.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/ERC1155.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155Receiver.sol",
@@ -1517,14 +1434,10 @@
         "lib/openzeppelin-contracts/contracts/token/ERC1155/utils/ERC1155Receiver.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
-        "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
-        "lib/openzeppelin-contracts/contracts/utils/cryptography/EIP712.sol",
         "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
-        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
-        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol"
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
       ],
-      "versionRequirement": "^0.8.13",
+      "versionRequirement": "^0.8.9",
       "artifacts": {
         "characterNFT": {
           "0.8.17+commit.8df45f5f.Linux.gcc": "Distributor.sol/characterNFT.json"
@@ -1532,8 +1445,8 @@
       }
     },
     "test/Distributor.t.sol": {
-      "lastModificationDate": 1669046604147,
-      "contentHash": "5b0ddba96f34a08afb8d221b04b816a3",
+      "lastModificationDate": 1670016481919,
+      "contentHash": "5adc4fd6614a5723d2f859d9678c262d",
       "sourceName": "test/Distributor.t.sol",
       "solcConfig": {
         "settings": {
@@ -1563,11 +1476,9 @@
         }
       },
       "imports": [
-        "lib/chainlink-brownie-contracts/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol",
         "lib/forge-std/lib/ds-test/src/test.sol",
         "lib/forge-std/src/Vm.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/metatx/ERC2771Context.sol",
         "lib/openzeppelin-contracts/contracts/metatx/MinimalForwarder.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/ERC1155.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC1155/IERC1155.sol",
@@ -1588,7 +1499,7 @@
         "test/utils/Console.sol",
         "test/utils/Utilities.sol"
       ],
-      "versionRequirement": "^0.8.13",
+      "versionRequirement": "^0.8.9",
       "artifacts": {
         "DistributorTest": {
           "0.8.17+commit.8df45f5f.Linux.gcc": "Distributor.t.sol/DistributorTest.json"
