@@ -2,3 +2,5 @@
 foundry/cache/
 .vscode/*
 cache/*
+out/*
+*.log

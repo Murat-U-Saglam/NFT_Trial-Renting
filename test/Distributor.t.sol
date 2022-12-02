@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-import "@openzeppelin/contracts/metatx/MinimalForwarder.sol";
 import {DSTest} from "ds-test/test.sol";
 import {Vm} from "forge-std/Vm.sol";
 import {characterNFT} from "../src/Distributor.sol";
@@ -19,7 +18,6 @@ contract DistributorTest is DSTest {
     address owner;
     address noob;
     address experienced;
-    MinimalForwarder forwarder;
     address premium;
     //address public forwarder = 0x7A95fA73250dc53556d264522150A940d4C50238;
 
